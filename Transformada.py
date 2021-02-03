@@ -2,20 +2,47 @@ from OpenGL.GL import *
 from glew_wish import *
 import glfw
 
+rotacion = 0.0
+
 def dibujar():
+    global rotacion
     #rutinas de dibujo
     glColor3f(1.0,0.8,0.0)
     #Crear nueva matrix de transformación
-    glPushMatrix()
-    glTranslatef(0.5,-0.3,0)
-    glTranslatef(0.5,-0.3,0)
-    glVertex3f(0,0.2,0)
-    glVertex3f(-0.2,-0.2,0)
-    glVertex3f(0.2,-0.2,0)
-    glEnd()
+    #glPushMatrix()
+    #glTranslatef(0.5,-0.3,0)
+    #glRotatef(rotacion,0,1,0)
+    #glScalef(-1,1,1)
+    #glPushMatrix()
+    #glTranslatef(0.5,0.4,0)
+   # glBegin(GL_TRIANGLES)
 
-    #Termina de usar la matriz de transformación
+    #glColor3f(1.0,0.8,0.0)
+    #glVertex3f(0,0.2,0)
+    #glVertex3f(-0.2,-0.2,0)   
+   # glVertex3f(0.2,-0.2,0)
+   
+
+    #glEnd()
+    #glPopMatrix()
+     
+   
+    glPushMatrix()
+    glRotatef(45,0,0,1)
+    glTranslate(0.4,0,0)
+    
+    glBegin(GL_TRIANGLES)
+    glColor3f(0.5,0.2,0.3)
+    glVertex3f(0,0.2,0)
+    glVertex3f(-0.2,-0.2,0)   
+    glVertex3f(0.2,-0.2,0)
+    
+    glEnd()
     glPopMatrix()
+
+    rotacion = rotacion  + 0.5
+    if rotacion > 360:
+       rotacion = 0.0
 
 
 def main():
